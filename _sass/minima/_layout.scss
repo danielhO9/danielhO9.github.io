@@ -238,6 +238,17 @@
 /**
  * Posts
  */
+
+.post-content thead,
+.post-content tbody,
+.post-content tr {
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
 .post-header {
   margin-bottom: $spacing-unit;
   padding-bottom: 18px;
