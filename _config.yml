@@ -39,6 +39,8 @@ plugins:
 paginate: 7
 paginate_path: "/page:num/"
 
+google_analytics: G-QLNX05L28V
+
 # Uncomment the following setting if you wish to disable deprecation warnings
 #   from newer versions of sass converter. Adapt as required.
 # sass:
