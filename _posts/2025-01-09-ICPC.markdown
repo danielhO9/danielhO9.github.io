@@ -2,7 +2,6 @@
 layout: post
 title:  "2024 ICPC Asia Seoul Regional"
 date:   2025-01-08 23:12:00 +0900
-categories: PS
 ---
 
 2024 ICPC Asia Seoul Regional에 참여하였습니다.

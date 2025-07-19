@@ -2,7 +2,6 @@
 layout: post
 title:  "BOJ 19545"
 date:   2025-01-19 14:14:00 +0900
-categories: PS
 ---
 
 [소가 길을 건너간 이유 2020]

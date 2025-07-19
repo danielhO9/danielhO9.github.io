@@ -2,7 +2,6 @@
 layout: post
 title:  "BOJ 2340"
 date:   2025-03-01 01:11:00 +0900
-categories: PS
 ---
 
 오랜만에 진득하게 고민해서 문제를 풀어보았습니다.
