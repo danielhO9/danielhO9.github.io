@@ -239,9 +239,9 @@
  * Posts
  */
 
-.post-content thead,
-.post-content tbody,
-.post-content tr {
+.post-content table:not(.rouge-table) thead,
+.post-content table:not(.rouge-table) tbody,
+.post-content table:not(.rouge-table) tr {
   width: 100%;
   display: table;
   table-layout: fixed;
