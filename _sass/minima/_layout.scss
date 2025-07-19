@@ -239,14 +239,23 @@
  * Posts
  */
 
-.post-content table:not(.rouge-table) thead,
-.post-content table:not(.rouge-table) tbody,
-.post-content table:not(.rouge-table) tr {
+.post-content table:not(.rouge-table):not(.highlight table) thead,
+.post-content table:not(.rouge-table):not(.highlight table) tbody,
+.post-content table:not(.rouge-table):not(.highlight table) tr {
   width: 100%;
   display: table;
   table-layout: fixed;
   box-sizing: border-box;
   overflow-x: hidden;
+}
+
+.highlight,
+.highlighter-rouge,
+.highlight table {
+  overflow-x: auto !important;
+  display: block !important;
+  width: auto !important;
+  table-layout: auto !important;
 }
 
 .post-header {
