@@ -249,11 +249,27 @@
   overflow-x: hidden;
 }
 
+.highlight {
+  overflow-x: auto;
+  overflow-y: hidden; /* ✅ 세로 스크롤 제거 */
+  display: block;
+  width: 100%;
+}
+
+.highlight pre {
+  margin: 0;
+  padding: 1em;
+  line-height: 1.5;
+  overflow: visible;  /* ✅ pre 내부에서 다시 스크롤 안 생기게 */
+  white-space: pre;
+}
+
 .highlight table {
-  overflow-x: auto !important;
   display: block !important;
   width: auto !important;
   table-layout: auto !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important; /* ✅ table에서도 세로 스크롤 제거 */
 }
 
 .post-header {
