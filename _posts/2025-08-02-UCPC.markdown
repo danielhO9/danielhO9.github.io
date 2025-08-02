@@ -8,12 +8,12 @@ UCPC 2025에 참여하였습니다.
 
 [지난 ICPC 2024] 에 같이 참여했던 <a style="color:#FF8C00" href = "https://codeforces.com/profile/diordhd">diordhd</a>의 소개로 <a href="https://codeforces.com/profile/TLEwpdus"><span style="color:black">T</span><span style="color:#FF0000">LEwpdus</span></a>(?), <a style="color:#FF8C00" href = "https://codeforces.com/profile/diordhd">diordhd</a>, <a style="color:#FF8C00" href = "https://codeforces.com/profile/daniel604">daniel604</a>로 팀을 꾸리게 되었습니다. LGM과 대회에 참여한다는 상상은 해본적도 없었는데, PS를 시작한 이래 최고의 행운이 아닐까 싶습니다. <a href="https://codeforces.com/profile/TLEwpdus"><span style="color:black">T</span><span style="color:#FF0000">LEwpdus</span></a>만큼 PS 실력도, 경험도 풍부한 분과 함께할 참여할 기회가 드물다는 걸 알고 있었기에 많이 배우고 싶은 마음이었습니다.
 
-<a href="https://codeforces.com/profile/TLEwpdus"><span style="color:black">T</span><span style="color:#FF0000">LEwpdus</span></a>의 작명센스로 팀 이름은 `인공지능 사용 적발 시 실격 처리 됩니다`, 팀명은 각각 `Yann LeCun`, `Yoshua Bengio`, `Geoffrey Hinton`로 참여하였습니다. (저는 그중 `Geoffrey Hinton`를 담당했습니다.)
+<a href="https://codeforces.com/profile/TLEwpdus"><span style="color:black">T</span><span style="color:#FF0000">LEwpdus</span></a>의 작명센스로 팀 이름은 `인공지능 사용 적발 시 실격 처리 됩니다`, 팀원명은 각각 `Yann LeCun`, `Yoshua Bengio`, `Geoffrey Hinton`로 참여하였습니다. (저는 그중 `Geoffrey Hinton`를 담당했습니다.)
 
 ### 예선
 ![scoreboard1](https://raw.githubusercontent.com/danielhO9/danielhO9.github.io/refs/heads/main/assets/images/2025_ucpc_scoreboard1.png)
 
-동연이형 <a style="color:#FF8C00" href = "https://codeforces.com/profile/diordhd">diordhd</a>이 A ~ D, 제연이형 <a href="https://codeforces.com/profile/TLEwpdus"><span style="color:black">T</span><span style="color:#FF0000">LEwpdus</span></a>은 E ~ H, 저는 I ~ K를 잡고 대회를 시작하였습니다.
+동현이형 <a style="color:#FF8C00" href = "https://codeforces.com/profile/diordhd">diordhd</a>이 A ~ D, 제연이형 <a href="https://codeforces.com/profile/TLEwpdus"><span style="color:black">T</span><span style="color:#FF0000">LEwpdus</span></a>은 E ~ H, 저는 I ~ K를 잡고 대회를 시작하였습니다.
 
 A, B, D, E, G, H, I를 각자 밀었고, (제연이형의 H 퍼솔!) C는 제연이형과 동현이형이 조금 아이디어를 나누다 풀었습니다. (사실 어떤 분이 어떻게 풀었는지 놓쳤습니다.) F는 제연이형이 2차원 펜윅으로 TLE를 받고, 2차원이 아닌 풀이가 있음을 알고 다시 제출하여 맞았습니다. 그 사이 동현이형과 J 아이디어를 떠올리고 제출하였지만 엣지 케이스를 놓쳐서 2번 틀리고 맞추었습니다. 대략 한 시간 정도 남아서 다같이 K를 고민하였고, 제연이형이 트리의 지름 위을 이용해서 풀 수 있음을 발견하였지만 서로 다른 지름까지의 거리가 많지 않다는 관찰을 놓쳐서 풀지 못했습니다. 사실 제연이 형이 [이 문제]를 이용하면 될 것 같다 하였지만 시간도 부족하고 짤 수 없어 저 문제의 링크를 제출하였습니다(?).
 
