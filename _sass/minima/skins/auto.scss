@@ -397,3 +397,22 @@ $table-border-color: $lm-table-border-color;
   @include lm-highlight;
 
 }
+
+.cf-black {
+  color: black;
+}
+
+.cf-red {
+  color: #FF0000;
+}
+
+@media (prefers-color-scheme: dark) {
+  .cf-black {
+    color: lighten(#c6c6c6, 25%);
+  }
+
+  .cf-red {
+    color: lighten(#e81515, 0%);
+  }
+}
+

@@ -6,14 +6,14 @@ date:   2025-08-02 01:11:00 +0900
 
 UCPC 2025에 참여하였습니다.
 
-[지난 ICPC 2024] 에 같이 참여했던 <a style="color:#FF8C00" href = "https://codeforces.com/profile/diordhd">diordhd</a>의 소개로 <a href="https://codeforces.com/profile/TLEwpdus"><span style="color:black">T</span><span style="color:#FF0000">LEwpdus</span></a>(?), <a style="color:#FF8C00" href = "https://codeforces.com/profile/diordhd">diordhd</a>, <a style="color:#FF8C00" href = "https://codeforces.com/profile/daniel604">daniel604</a>로 팀을 꾸리게 되었습니다. LGM과 대회에 참여한다는 상상은 해본적도 없었는데, PS를 시작한 이래 최고의 행운이 아닐까 싶습니다. <a href="https://codeforces.com/profile/TLEwpdus"><span style="color:black">T</span><span style="color:#FF0000">LEwpdus</span></a>만큼 PS 실력도, 경험도 풍부한 분과 함께할 참여할 기회가 드물다는 걸 알고 있었기에 많이 배우고 싶은 마음이었습니다.
+[지난 ICPC 2024] 에 같이 참여했던 <a style="color:#FF8C00" href = "https://codeforces.com/profile/diordhd">diordhd</a>의 소개로 <a href="https://codeforces.com/profile/TLEwpdus"><span class="cf-black">T</span><span class="cf-red">LEwpdus</span></a>(?), <a style="color:#FF8C00" href = "https://codeforces.com/profile/diordhd">diordhd</a>, <a style="color:#FF8C00" href = "https://codeforces.com/profile/daniel604">daniel604</a>로 팀을 꾸리게 되었습니다. LGM과 대회에 참여한다는 상상은 해본적도 없었는데, PS를 시작한 이래 최고의 행운이 아닐까 싶습니다. <a href="https://codeforces.com/profile/TLEwpdus"><span class="cf-black">T</span><span class="cf-red">LEwpdus</span></a>만큼 PS 실력도, 경험도 풍부한 분과 함께할 참여할 기회가 드물다는 걸 알고 있었기에 많이 배우고 싶은 마음이었습니다.
 
-<a href="https://codeforces.com/profile/TLEwpdus"><span style="color:black">T</span><span style="color:#FF0000">LEwpdus</span></a>의 작명센스로 팀 이름은 `인공지능 사용 적발 시 실격 처리 됩니다`, 팀원명은 각각 `Yann LeCun`, `Yoshua Bengio`, `Geoffrey Hinton`로 참여하였습니다. (저는 그중 `Geoffrey Hinton`를 담당했습니다.)
+<a href="https://codeforces.com/profile/TLEwpdus"><span class="cf-black">T</span><span class="cf-red">LEwpdus</span></a>의 작명센스로 팀 이름은 `인공지능 사용 적발 시 실격 처리 됩니다`, 팀원명은 각각 `Yann LeCun`, `Yoshua Bengio`, `Geoffrey Hinton`로 참여하였습니다. (저는 그중 `Geoffrey Hinton`를 담당했습니다.)
 
 ### 예선
 ![scoreboard1](https://raw.githubusercontent.com/danielhO9/danielhO9.github.io/refs/heads/main/assets/images/2025_ucpc_scoreboard1.png)
 
-동현이형 <a style="color:#FF8C00" href = "https://codeforces.com/profile/diordhd">diordhd</a>이 A ~ D, 제연이형 <a href="https://codeforces.com/profile/TLEwpdus"><span style="color:black">T</span><span style="color:#FF0000">LEwpdus</span></a>은 E ~ H, 저는 I ~ K를 잡고 대회를 시작하였습니다.
+동현이형 <a style="color:#FF8C00" href = "https://codeforces.com/profile/diordhd">diordhd</a>이 A ~ D, 제연이형 <a href="https://codeforces.com/profile/TLEwpdus"><span class="cf-black">T</span><span class="cf-red">LEwpdus</span></a>은 E ~ H, 저는 I ~ K를 잡고 대회를 시작하였습니다.
 
 A, B, D, E, G, H, I를 각자 밀었고, (제연이형의 H 퍼솔!) C는 제연이형과 동현이형이 조금 아이디어를 나누다 풀었습니다. (사실 어떤 분이 어떻게 풀었는지 놓쳤습니다.) F는 제연이형이 2차원 펜윅으로 TLE를 받고, 2차원이 아닌 풀이가 있음을 알고 다시 제출하여 맞았습니다. 그 사이 동현이형과 J 아이디어를 떠올리고 제출하였지만 엣지 케이스를 놓쳐서 2번 틀리고 맞추었습니다. 대략 한 시간 정도 남아서 다같이 K를 고민하였고, 제연이형이 트리의 지름 위을 이용해서 풀 수 있음을 발견하였지만 서로 다른 지름까지의 거리가 많지 않다는 관찰을 놓쳐서 풀지 못했습니다. 사실 제연이 형이 [이 문제]를 이용하면 될 것 같다 하였지만 시간도 부족하고 짤 수 없어 저 문제의 링크를 제출하였습니다(?).
 
@@ -28,7 +28,7 @@ A, B, D, E, G, H, I를 각자 밀었고, (제연이형의 H 퍼솔!) C는 제연
 
 ![scoreboard2](https://raw.githubusercontent.com/danielhO9/danielhO9.github.io/refs/heads/main/assets/images/2025_ucpc_scoreboard2.png)
 
-대회장에 착석한 순서대로 제연이형 <a href="https://codeforces.com/profile/TLEwpdus"><span style="color:black">T</span><span style="color:#FF0000">LEwpdus</span></a>이 A ~ E, 동연이형 <a style="color:#FF8C00" href = "https://codeforces.com/profile/diordhd">diordhd</a>은 F ~ I, 저는 J ~ M을 잡고 대회를 시작하였습니다.
+대회장에 착석한 순서대로 제연이형 <a href="https://codeforces.com/profile/TLEwpdus"><span class="cf-black">T</span><span class="cf-red">LEwpdus</span></a>이 A ~ E, 동연이형 <a style="color:#FF8C00" href = "https://codeforces.com/profile/diordhd">diordhd</a>은 F ~ I, 저는 J ~ M을 잡고 대회를 시작하였습니다.
 
 잡은 문제들을 읽었는데 마땅히 풀이가 생각나는 게 없었고, M이 case work을 하면 해를 구성할 수 있을 것 같아서 그려보다 도무지 아닌 것 같아 포기하였습니다. 그 사이 팀원분들이 B, C, E, I를 밀어주었고 (제연이형의 B 퍼솔!) 동현이형의 H 풀이를 들었습니다. H 풀이에 case도 너무 많고 construct까지 해야하는 말도 안되는 구현량이었기에 <a style="color:#FF8C00" href = "https://codeforces.com/profile/dlwocks31">dlwocks31</a>이 보고 싶어지는 문제였습니다. 동현이형이 구현을 시작하고 제연이형과 같이 A를 봤는데, 원래 dp로 접근하던 중 갑자기 제연이형이 $\text{number of leaves}/{2}$ 로 구성할 수 있음을 알아내고 제출하였습니다. 그 사이 K를 고민하였는데 2개씩 끊어서 생각하면 case를 나눌 수 있는 관찰을 했습니다. 제연이형이 `slope trick`처럼 직선을 관리하는 풀이를 짜서 제출했지만 WA를 받았습니다. 다행히 반례를 찾을 수 있었고 다시 제출해 맞출 수 있었습니다. 때마침 H 스트레스 테스트까지 짜던 동현이형이 지옥에서 탈출하면서 술술 풀려나가기 시작했습니다!
 
