@@ -7,10 +7,13 @@ author:
   name: danielhO9
   email: daniel604@snu.ac.kr
 
+url: "https://danielho9.github.io"
+baseurl: ""
+
 # The `>` after `description:` means to ignore line-breaks until next key. If
 #   you wish to omit the line-break after the end of text, use `>-` instead.
-description: >
-  PS is a sport
+# description: >  
+#   PS is a sport
 
 
 # Build settings
