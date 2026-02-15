@@ -64,14 +64,31 @@
     .menu-icon {
       float: right;
       width: 36px;
-      height: 26px;
+      height: 36px;
       line-height: 0;
-      padding-top: 18px;
+      padding: 8px 4px;
       text-align: center;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-sizing: border-box;
 
-      &::before {
-        font-family: "Font Awesome 6 Free";
-        font-weight: 900;
+      span {
+        display: block;
+        position: relative;
+        height: 2px;
+        width: 20px;
+        background: $text-color;
+        border-radius: 1px;
+        opacity: 1;
+        margin: 0 auto 4px;
+        transform: rotate(0deg);
+        transition: .25s ease-in-out;
+
+        &:nth-child(3) {
+          margin-bottom: 0;
+        }
       }
 
       > svg path {
@@ -80,23 +97,26 @@
     }
 
     #nav-trigger {
-      ~ label[for=nav-trigger] .menu-icon {
-        &::before {
-          content: "\f0c9";
-          font-size: 1.25em;
-        }
-      }
       ~ .nav-items {
         clear: both;
         display: none
       }
       &:checked {
-      ~ label[for=nav-trigger] .menu-icon {
-        &::before {
-          content: "\f00d";
-          font-size: 1.5em;
+        ~ label[for=nav-trigger] .menu-icon {
+          span {
+            &:nth-child(1) {
+              transform: translateY(6px) rotate(45deg);
+            }
+
+            &:nth-child(2) {
+              opacity: 0;
+            }
+
+            &:nth-child(3) {
+              transform: translateY(-6px) rotate(-45deg);
+            }
+          }
         }
-      }
         ~ .nav-items {
           display: block;
           padding-bottom: 5px;
