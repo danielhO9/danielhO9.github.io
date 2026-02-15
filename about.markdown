@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-안녕하세요!
+Hello, I'm Yongjun Lee, a B.S. candidate in Computer Science and Engineering at Seoul National University. <a href="{{ site.baseurl }}/assets/images/Yongjun%20Lee%20CV.pdf" target="_blank">CV</a>
 
 <!-- This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
 
