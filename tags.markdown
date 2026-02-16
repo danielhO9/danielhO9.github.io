@@ -25,15 +25,15 @@ permalink: /tags/
   {%- endfor %}
   
   <div class="tag-cloud">
+    <a href="javascript:void(0)" class="tag-link tag-all" onclick="showAllTags()">
+      All Tags
+    </a>
     {%- for tag in final_tags %}
       {%- assign posts = site.tags[tag] %}
       <a href="javascript:void(0)" class="tag-link" data-tag="{{ tag | slugify }}" onclick="filterByTag('{{ tag | slugify }}')">
         {{ tag }} <span class="tag-count">({{ posts | size }})</span>
       </a>
     {%- endfor %}
-    <a href="javascript:void(0)" class="tag-link tag-all" onclick="showAllTags()">
-      All Tags
-    </a>
   </div>
 
   <div class="tag-list">
