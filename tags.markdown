@@ -80,6 +80,9 @@ function filterByTag(tagId) {
     clickedLink.classList.add('active');
   }
   
+  // Update URL hash without scrolling
+  history.pushState(null, null, `#${tagId}`);
+  
   // Scroll to section smoothly
   if (selectedSection) {
     selectedSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -97,10 +100,26 @@ function showAllTags() {
     link.classList.remove('active');
   });
   document.querySelector('.tag-all').classList.add('active');
+  
+  // Clear URL hash
+  history.pushState(null, null, window.location.pathname);
 }
 
-// Initialize: show all tags by default
+// Check URL hash on page load and filter accordingly
 document.addEventListener('DOMContentLoaded', function() {
-  showAllTags();
+  const hash = window.location.hash.substring(1); // Remove the # character
+  if (hash) {
+    // Check if the tag exists
+    const tagSection = document.getElementById(hash);
+    if (tagSection) {
+      filterByTag(hash);
+    } else {
+      // If tag doesn't exist, show all tags
+      showAllTags();
+    }
+  } else {
+    // No hash, show all tags by default
+    showAllTags();
+  }
 });
 </script>
