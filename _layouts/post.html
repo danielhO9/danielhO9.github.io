@@ -29,6 +29,14 @@ layout: base
         {% endfor %}
       </div>
       {%- endif %}
+      {%- if page.tags %}
+      <div class="post-tags">
+        <span class="meta-label">Tags:</span>
+        {%- for tag in page.tags %}
+          <a href="{{ site.baseurl }}/tags/#{{ tag | slugify }}" class="post-tag">{{ tag }}</a>
+        {%- endfor %}
+      </div>
+      {%- endif %}
     </div>
   </header>
 

@@ -120,19 +120,17 @@
         ~ .nav-items {
           display: block;
           padding-bottom: 5px;
+          
           .nav-item {
-            margin-left: 20px;
+            display: block;
             padding: 5px 10px;
+            margin-left: 20px;
+            margin-right: 0;
+            color: $text-color;
+            line-height: $base-line-height;
           }
         }
       }
-    }
-
-    .nav-item {
-      display: block;
-      padding: 5px 0;
-      color: $text-color;
-      line-height: $base-line-height;
     }
   }
 }

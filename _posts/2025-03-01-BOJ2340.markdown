@@ -2,6 +2,7 @@
 layout: post
 title:  "BOJ 2340"
 date:   2025-03-01 01:11:00 +0900
+tags: [Algorithm, String]
 ---
 
 I spent some time carefully thinking through and solving a problem for the first time in a while.
