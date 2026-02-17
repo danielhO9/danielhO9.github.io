@@ -76,4 +76,4 @@ Problems always seem difficult while solving them, but straightforward in retros
 
 [BOJ 2340 이진 수열 회전]: https://www.acmicpc.net/problem/2340
 [Burrows–Wheeler transform]: https://en.wikipedia.org/wiki/Burrows%E2%80%93Wheeler_transform
-[here]: https://github.com/danielhO9/PS/blob/main/template/string/suffixArray.cpp
+[here]: https://github.com/danielhO9/PS/blob/main/template/strings/SuffixArray.h
