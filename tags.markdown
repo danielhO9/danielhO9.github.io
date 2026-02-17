@@ -59,67 +59,66 @@ permalink: /tags/
 </div>
 
 <script>
-function filterByTag(tagId) {
-  // Hide all sections
-  document.querySelectorAll('.tag-section').forEach(section => {
-    section.style.display = 'none';
-  });
+// Display tags based on current hash (without modifying history)
+function displayTags(updateHistory) {
+  const hash = window.location.hash.substring(1);
   
-  // Show selected section
-  const selectedSection = document.getElementById(tagId);
-  if (selectedSection) {
-    selectedSection.style.display = 'block';
+  if (hash) {
+    const tagSection = document.getElementById(hash);
+    if (tagSection) {
+      // Hide all sections
+      document.querySelectorAll('.tag-section').forEach(section => {
+        section.style.display = 'none';
+      });
+      
+      // Show selected section
+      tagSection.style.display = 'block';
+      
+      // Update active state
+      document.querySelectorAll('.tag-link').forEach(link => {
+        link.classList.remove('active');
+      });
+      const clickedLink = document.querySelector(`.tag-link[data-tag="${hash}"]`);
+      if (clickedLink) {
+        clickedLink.classList.add('active');
+      }
+      
+      // Scroll to section smoothly
+      tagSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      return;
+    }
   }
   
-  // Update active state
-  document.querySelectorAll('.tag-link').forEach(link => {
-    link.classList.remove('active');
-  });
-  const clickedLink = document.querySelector(`.tag-link[data-tag="${tagId}"]`);
-  if (clickedLink) {
-    clickedLink.classList.add('active');
-  }
-  
-  // Update URL hash without scrolling
-  history.pushState(null, null, `#${tagId}`);
-  
-  // Scroll to section smoothly
-  if (selectedSection) {
-    selectedSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-}
-
-function showAllTags() {
-  // Show all sections
+  // No hash or invalid hash - show all tags
   document.querySelectorAll('.tag-section').forEach(section => {
     section.style.display = 'block';
   });
   
-  // Update active state
   document.querySelectorAll('.tag-link').forEach(link => {
     link.classList.remove('active');
   });
   document.querySelector('.tag-all').classList.add('active');
-  
-  // Clear URL hash
-  history.pushState(null, null, window.location.pathname);
 }
 
-// Check URL hash on page load and filter accordingly
+// Filter by tag (called when user clicks a tag)
+function filterByTag(tagId) {
+  window.location.hash = tagId;
+}
+
+// Show all tags (called when user clicks "All Tags")
+function showAllTags() {
+  // Remove hash from URL
+  history.pushState(null, null, window.location.pathname);
+  displayTags(false);
+}
+
+// Initialize on page load
 document.addEventListener('DOMContentLoaded', function() {
-  const hash = window.location.hash.substring(1); // Remove the # character
-  if (hash) {
-    // Check if the tag exists
-    const tagSection = document.getElementById(hash);
-    if (tagSection) {
-      filterByTag(hash);
-    } else {
-      // If tag doesn't exist, show all tags
-      showAllTags();
-    }
-  } else {
-    // No hash, show all tags by default
-    showAllTags();
-  }
+  displayTags(false);
+});
+
+// Handle browser back/forward buttons
+window.addEventListener('hashchange', function() {
+  displayTags(false);
 });
 </script>
