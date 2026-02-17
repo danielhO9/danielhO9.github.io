@@ -1,0 +1,112 @@
+---
+layout: post
+title:  "Combinatorics Problem Solving"
+date:   2026-02-17 22:00:00 +0900
+tags: [Algorithm, Combinatorics]
+---
+
+I solved some problems about combinatorics. In this post, I will discuss a few interesting combinatorics problems.
+
+### BOJ 13174
+
+#### Problem
+[BOJ 13174 괄호]
+
+The problem asks us to count the number of ways to create a valid palindromic parentheses string with coloring, using $2N$ parentheses and $K$ colors.
+
+#### Solution
+Since the string must be a palindrome, once we determine the first $N$ parentheses, the remaining $N$ parentheses are uniquely determined by the palindrome constraint. Therefore, we only need to consider the first $N$ parentheses.
+
+Let $a$ be the number of open parentheses in the first $N$ parentheses, and $b$ be the number of close parentheses. Let $f(a,b)$ be the number of ways to generate the first half. By definition, $a+b=N$ must hold and the number of open parentheses is always greater than or equal to the number of close parentheses from the left side (for validity).
+
+Now, considering the coloring: we need to assign one of $K$ colors to each open parenthesis (the close parenthesis inherits its matching open parenthesis's color due to the palindrome property). Since there are $a = N-i$ open parentheses, the number of colorings is $K^{N-i}$. Thus, the answer is:
+
+$$\sum^{\lfloor N/2 \rfloor}_{i=0} f(N-i,i) \cdot K^{N-i}$$
+
+Let's calculate $f(a, b)$. This is quite similar to counting [dyck paths]. We can use the reflection principle: the number of invalid paths (those crossing the diagonal $y=x$) has a one-to-one correspondence with lattice walks from $(0, 0)$ to $(b - 1, a + 1)$. Therefore, $f(a,b)$ can be calculated as follows:
+
+$$ f(a,b)= \begin{cases}
+    1 & \text{$b = 0$} \\
+    {}_{a+b} C_{b} - {}_{a+b} C_{b-1} & \text{$b \neq 0$} \\
+  \end{cases}
+$$
+
+Therefore, we can calculate the answer.
+
+### BOJ 26313
+
+#### Problem
+[BOJ 26313 Invitation]
+
+There are $n$ intervals represented by $l_i$ and $r_i$. For each $k$ from $1$ to $n$, we need to count the number of ways to choose $k$ intervals that have at least one common intersection point.
+
+#### Solution
+The first observation is that we can use a sweeping algorithm. By sweeping through the intervals, we can track the number of active intervals at any point in time. If there are $m$ active intervals at some point, then any subset of size $k$ from these $m$ intervals will have a common intersection, giving us $\displaystyle\binom{m}{k}$ ways.
+
+However, this approach will count some configurations multiple times. To avoid double counting, we should only count when a new interval starts. Specifically, when we reach the start point $l_i$ of an interval, if there are already $m$ intervals active (excluding the new one), we add $\displaystyle\binom{m}{k-1}$ to the answer (since we're including the new interval as one of the $k$ chosen intervals).
+
+To implement this, we need to count the number of active intervals at each interval's start point $l_i$. This can be calculated in $O(n)$ using a sweeping algorithm. Let $a_i$ denote the frequency of having exactly $i$ active intervals at the start of some interval. The answer for a given $k$ can be represented as follows:
+
+$$\sum^{n-1}_{i=k-1}a_i \cdot \binom{i}{k-1}=\frac{1}{(k-1)!}\sum^{n-1}_{i=k-1}\frac{a_i i!}{(i-k+1)!} \\ =\frac{1}{(k-1)!}\sum^{n-1}_{i=k-1}\frac{a_i i!}{((n-1)-(n+k-2-i))!}$$
+
+By reformulating the expression as above, we can efficiently calculate the answer for all values of $k$ from $1$ to $n$. Let $f(x)$ and $g(x)$ be two polynomials defined as follows:
+
+$$f(x)=\sum^{n-1}_{i=0} a_i i! x^i,\,g(x)=\sum^{n-1}_{i=0} \frac{x^i}{(n-1-i)!}$$
+
+Using [FFT] to compute $f(x) \cdot g(x)$, the coefficient of $x^{n+k-2}$ will give us the answer for each $k$.
+
+### BOJ 18570
+
+#### Problem
+[BOJ 18570 Bus Stop]
+
+There are $n$ bus routes, and each bus on route $i$ arrives at the bus stop every $d_i$ minutes. At the exact moment we arrive at the stop, the waiting time until bus $i$ arrives is uniformly distributed between $0$ and $d_i$ minutes. Find the expected waiting time until any bus arrives.
+
+#### Solution
+
+Let $X_i$ be the random variable representing the waiting time for bus $i$. Let $Y$ be the random variable defined as $$Y=\min \{ X_1, \ldots, X_n \}$$, and let $$m=\min \{ d_1, \ldots, d_n \}$$. The expected waiting time can be expressed as follows:
+
+$$E[Y]=\int_{0}^{m} xf_{Y}(x) \,dx=xF_{Y}(x) \Big|_0^m - \int_{0}^{m} F_{Y}(x) \,dx$$
+
+where $f_{Y}(x)$ is the PDF of $Y$ and $F_{Y}(x)$ is the CDF. The CDF of $Y$ can be calculated as follows:
+
+$$F_{Y}(x)=P(Y < x)=1-P(Y\geq x)=1-\prod^{n}_{i=1} \left(1-\frac{x}{d_i}\right)$$
+
+Since $1 - F_{Y}(x)$ is a product of $n$ first-order polynomials, it can be efficiently computed using divide-and-conquer with [NTT]. To multiply polynomials from index $l$ to $r$, we recursively multiply the left half (from $l$ to $\lfloor (l+r)/2 \rfloor$) and the right half (from $\lfloor (l+r)/2 \rfloor + 1$ to $r$). The time complexity is $O(n \log^{2} n)$. Using the coefficients of $F_{Y}(x)$, we can perform the integration to obtain the answer.
+
+### BOJ 14853
+
+#### Problem
+[BOJ 14853 동전 던지기]
+
+Two coins are created, each with an unknown probability of heads drawn independently and uniformly from $[0,1]$. After flipping coin 1 $n_1$ times with $m_1$ heads and coin 2 $n_2$ times with $m_2$ heads, compute the probability that the true head probability of coin 1 is less than that of coin 2.
+
+#### Solution
+
+Let $X_1$ be the random variable representing the head probability for coin 1 and $X_2$ be the same for coin 2. Let $A_1$ denote the event that flipping coin 1 $n_1$ times results in $m_1$ heads, and $A_2$ denote the corresponding event for coin 2. Using Bayes' theorem, we can calculate the posterior density $f_{X_1\|A_1}(x)$ as follows:
+
+$$ f_{X_1|A_1}(x)\delta=P(x < X_1 < x+\delta | A_1) \\ =\frac{P(x < X_1 < x+\delta)\, P(A_1 | x < X_1 < x+\delta)}{P(A_1)} \\ \approx \frac{f_{X_1}(x)\, P(A_1 | x < X_1 < x+\delta)}{P(A_1)} \delta \\\approx \frac{x^{m_1}(1-x)^{n_1-m_1}}{\int_{0}^{1} x^{m_1}(1-x)^{n_1-m_1} \,dx} \delta$$
+
+This is the [beta distribution] with parameters $(m_1+1, n_1-m_1+1)$. Using this result, the answer can be calculated as:
+
+$$ \int_{0}^{1} \int_{x}^{1} f_{X_2|A_2}(y) \,dy \, f_{X_1|A_1}(x) \,dx $$
+
+However, this calculation is complicated. There is an elegant combinatorial approach to compute this more easily. The key insight comes from the combinatorial interpretation of computing the [beta function] $B(\alpha, \beta) = \int_{0}^{1} x^{\alpha-1}(1-x)^{\beta-1} \,dx$. This integral can be evaluated combinatorially by considering $\alpha + \beta$ uniform random points in $[0, 1]$ and analyzing the position of the $\alpha$-th smallest point.
+
+Similarly, when we toss a coin with head probability $p$, each flip can be interpreted as choosing a random point in $[0, 1]$—if it falls below $p$, the result is heads.
+
+With this interpretation, we can think about this problem slightly differently. Consider choosing $n_1 + n_2 + 2$ random points uniformly in $[0, 1]$. Two of these points will represent $p$ (the head probability of coin 1) and $q$ (the head probability of coin 2). Once we determine which $n_1 + 1$ points belong to coin 1 (including $p$), the remaining $n_2 + 1$ points (including $q$) belong to coin 2.
+
+For the observed outcomes to match, $p$ must be the $(m_1+1)$-th smallest point among coin 1's points, and $q$ must be the $(m_2+1)$-th smallest among coin 2's points. Since we require $p < q$, $p$ can be any of the $(m_1+1)$-th through $(m_1+m_2+1)$-th smallest points overall. Therefore, the answer can be calculated as:
+
+$$ \frac{\displaystyle\sum^{m_1+m_2}_{i=m_1} \binom{i}{m_1} \, \binom{n_1+n_2+1-i}{n_1-m_1}}{\displaystyle\binom{n_1+n_2+2}{n_1+1}} $$
+
+[BOJ 13174 괄호]: https://www.acmicpc.net/problem/13174
+[dyck paths]: https://en.wikipedia.org/wiki/Lattice_path#Counting_lattice_paths
+[BOJ 26313 Invitation]: https://www.acmicpc.net/problem/26313
+[FFT]: https://en.wikipedia.org/wiki/Fast_Fourier_transform
+[BOJ 18570 Bus Stop]: https://www.acmicpc.net/problem/18570
+[NTT]: https://en.wikipedia.org/wiki/Discrete_Fourier_transform_(general)#Number-theoretic_transform
+[BOJ 14853 동전 던지기]: https://www.acmicpc.net/problem/14853
+[beta distribution]: https://en.wikipedia.org/wiki/Beta_distribution
+[beta function]: https://en.wikipedia.org/wiki/Beta_function
