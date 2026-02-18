@@ -53,7 +53,7 @@ By reformulating the expression as above, we can efficiently calculate the answe
 
 $$f(x)=\sum^{n-1}_{i=0} a_i i! x^i,\,g(x)=\sum^{n-1}_{i=0} \frac{x^i}{(n-1-i)!}$$
 
-Using [FFT] to compute $f(x) \cdot g(x)$, the coefficient of $x^{n+k-2}$ will give us the answer for each $k$.
+Using [NTT] to compute $f(x) \cdot g(x)$, the coefficient of $x^{n+k-2}$ will give us the answer for each $k$.
 
 ### BOJ 18570
 
@@ -104,7 +104,6 @@ $$ \frac{\displaystyle\sum^{m_1+m_2}_{i=m_1} \binom{i}{m_1} \, \binom{n_1+n_2+1-
 [BOJ 13174 괄호]: https://www.acmicpc.net/problem/13174
 [dyck paths]: https://en.wikipedia.org/wiki/Lattice_path#Counting_lattice_paths
 [BOJ 26313 Invitation]: https://www.acmicpc.net/problem/26313
-[FFT]: https://en.wikipedia.org/wiki/Fast_Fourier_transform
 [BOJ 18570 Bus Stop]: https://www.acmicpc.net/problem/18570
 [NTT]: https://en.wikipedia.org/wiki/Discrete_Fourier_transform_(general)#Number-theoretic_transform
 [BOJ 14853 동전 던지기]: https://www.acmicpc.net/problem/14853
