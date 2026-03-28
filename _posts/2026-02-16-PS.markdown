@@ -83,22 +83,12 @@ Two coins are created, each with an unknown probability of heads drawn independe
 
 #### Solution
 
-Let $X_1$ be the random variable representing the head probability for coin 1 and $X_2$ be the same for coin 2. Let $A_1$ denote the event that flipping coin 1 $n_1$ times results in $m_1$ heads, and $A_2$ denote the corresponding event for coin 2. Using Bayes' theorem, we can calculate the posterior density $f_{X_1\|A_1}(x)$ as follows:
+Let $X_1$ be the random variable for the true head probability of coin 1, and let $X_2$ be the corresponding variable for coin 2. Given $m_1$ heads in $n_1$ flips, the posterior distribution of $X_1$ (with a uniform prior on $[0,1]$) is
+$\mathrm{Beta}(m_1+1, n_1-m_1+1)$, which is also the distribution of the $(m_1+1)$-th order statistic among $n_1+1$ i.i.d. uniform samples, denoted by $U_{(m_1+1)}$. Similarly, $X_2 \sim \mathrm{Beta}(m_2+1, n_2-m_2+1)$.
 
-$$ f_{X_1|A_1}(x)\delta=P(x < X_1 < x+\delta | A_1) \\ =\frac{P(x < X_1 < x+\delta)\, P(A_1 | x < X_1 < x+\delta)}{P(A_1)} \\ \approx \frac{f_{X_1}(x)\, P(A_1 | x < X_1 < x+\delta)}{P(A_1)} \delta \\\approx \frac{x^{m_1}(1-x)^{n_1-m_1}}{\int_{0}^{1} x^{m_1}(1-x)^{n_1-m_1} \,dx} \delta$$
-
-This is the [beta distribution] with parameters $(m_1+1, n_1-m_1+1)$. Using this result, the answer can be calculated as:
-
-$$ \int_{0}^{1} \int_{x}^{1} f_{X_2|A_2}(y) \,dy \, f_{X_1|A_1}(x) \,dx $$
-
-However, this calculation is complicated. There is an elegant combinatorial approach to compute this more easily. The key insight comes from the combinatorial interpretation of computing the [beta function] $B(\alpha, \beta) = \int_{0}^{1} x^{\alpha-1}(1-x)^{\beta-1} \,dx$. This integral can be evaluated combinatorially by considering $\alpha + \beta$ uniform random points in $[0, 1]$ and analyzing the position of the $\alpha$-th smallest point.
-
-Similarly, when we toss a coin with head probability $p$, each flip can be interpreted as choosing a random point in $[0, 1]$—if it falls below $p$, the result is heads.
-
-With this interpretation, we can think about this problem slightly differently. Consider choosing $n_1 + n_2 + 2$ random points uniformly in $[0, 1]$. Two of these points will represent $p$ (the head probability of coin 1) and $q$ (the head probability of coin 2). Once we determine which $n_1 + 1$ points belong to coin 1 (including $p$), the remaining $n_2 + 1$ points (including $q$) belong to coin 2.
-
-For the observed outcomes to match, $p$ must be the $(m_1+1)$-th smallest point among coin 1's points, and $q$ must be the $(m_2+1)$-th smallest among coin 2's points. Since we require $p < q$, $p$ can be any of the $(m_1+1)$-th through $(m_1+m_2+1)$-th smallest points overall. Therefore, the answer can be calculated as:
-
+Now we compute $P(X_1 < X_2)$. One way is to integrate the beta PDFs directly, but we can derive a cleaner combinatorial formula via order statistics. Interpreting
+$X_1$ and $X_2$ as order statistics, the event $X_1 < X_2$ is equivalent to
+$U_{(m_1+1)}^{(n_1+1)} < U_{(m_2+1)}^{(n_2+1)}$. Merge the $n_1+1$ samples associated with coin 1 and the $n_2+1$ samples associated with coin 2 into one sorted sequence. Then count the interleavings for which the $(m_1+1)$-th sample from coin 1 appears before the $(m_2+1)$-th sample from coin 2. This gives:
 $$ \frac{\displaystyle\sum^{m_1+m_2}_{i=m_1} \binom{i}{m_1} \, \binom{n_1+n_2+1-i}{n_1-m_1}}{\displaystyle\binom{n_1+n_2+2}{n_1+1}} $$
 
 [BOJ 13174 괄호]: https://www.acmicpc.net/problem/13174
@@ -107,5 +97,3 @@ $$ \frac{\displaystyle\sum^{m_1+m_2}_{i=m_1} \binom{i}{m_1} \, \binom{n_1+n_2+1-
 [BOJ 18570 Bus Stop]: https://www.acmicpc.net/problem/18570
 [NTT]: https://en.wikipedia.org/wiki/Discrete_Fourier_transform_(general)#Number-theoretic_transform
 [BOJ 14853 동전 던지기]: https://www.acmicpc.net/problem/14853
-[beta distribution]: https://en.wikipedia.org/wiki/Beta_distribution
-[beta function]: https://en.wikipedia.org/wiki/Beta_function
