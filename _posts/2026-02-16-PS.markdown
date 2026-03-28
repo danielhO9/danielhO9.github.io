@@ -89,6 +89,7 @@ $\mathrm{Beta}(m_1+1, n_1-m_1+1)$, which is also the distribution of the $(m_1+1
 Now we compute $P(X_1 < X_2)$. One way is to integrate the beta PDFs directly, but we can derive a cleaner combinatorial formula via order statistics. Interpreting
 $X_1$ and $X_2$ as order statistics, the event $X_1 < X_2$ is equivalent to
 $U_{(m_1+1)}^{(n_1+1)} < U_{(m_2+1)}^{(n_2+1)}$. Merge the $n_1+1$ samples associated with coin 1 and the $n_2+1$ samples associated with coin 2 into one sorted sequence. Then count the interleavings for which the $(m_1+1)$-th sample from coin 1 appears before the $(m_2+1)$-th sample from coin 2. This gives:
+
 $$ \frac{\displaystyle\sum^{m_1+m_2}_{i=m_1} \binom{i}{m_1} \, \binom{n_1+n_2+1-i}{n_1-m_1}}{\displaystyle\binom{n_1+n_2+2}{n_1+1}} $$
 
 [BOJ 13174 괄호]: https://www.acmicpc.net/problem/13174
