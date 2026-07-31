@@ -8,14 +8,15 @@ layout: base
     <div class="post-meta">
       {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
       {% assign pdate = page.date | date_to_xmlschema %}
-      {%- if page.modified_date %}<span class="meta-label">Published:</span>{% endif %}
+      {%- assign modified_date = page.last_modified_at | default: page.modified_date -%}
+      {%- if modified_date %}<span class="meta-label">Published:</span>{% endif %}
       <time class="dt-published" datetime="{{ pdate }}" itemprop="datePublished">
         {{ pdate | date: date_format }}
       </time>
-      {%- if page.modified_date -%}
+      {%- if modified_date -%}
         <span class="bullet-divider">•</span>
         <span class="meta-label">Updated:</span>
-        {%- assign mdate = page.modified_date | date_to_xmlschema %}
+        {%- assign mdate = modified_date | date_to_xmlschema %}
         <time class="dt-modified" datetime="{{ mdate }}" itemprop="dateModified">
           {{ mdate | date: date_format }}
         </time>
@@ -43,6 +44,34 @@ layout: base
   <div class="post-content e-content" itemprop="articleBody">
     {{ content }}
   </div>
+
+  {%- assign related_count = 0 -%}
+  {%- capture related_items -%}
+    {%- for related_post in site.posts -%}
+      {%- unless related_post.url == page.url or related_count >= 3 -%}
+        {%- assign has_shared_tag = false -%}
+        {%- for tag in page.tags -%}
+          {%- if related_post.tags contains tag -%}
+            {%- assign has_shared_tag = true -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if has_shared_tag -%}
+          <li>
+            <a href="{{ related_post.url | relative_url }}">{{ related_post.title | escape }}</a>
+          </li>
+          {%- assign related_count = related_count | plus: 1 -%}
+        {%- endif -%}
+      {%- endunless -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+  {%- if related_count > 0 %}
+    <aside class="related-posts" aria-labelledby="related-posts-heading">
+      <h2 id="related-posts-heading">Related posts</h2>
+      <ul>
+        {{ related_items }}
+      </ul>
+    </aside>
+  {%- endif %}
 
   {% if jekyll.environment == 'production' -%}
     {% if page.comments == false -%}

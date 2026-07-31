@@ -3,6 +3,8 @@ layout: post
 title:  "Combinatorics Problem Solving"
 date:   2026-02-17 22:00:00 +0900
 tags: [Algorithm, Combinatorics]
+published: true
+last_modified_at: 2026-07-30 22:31:19 +0900
 ---
 
 I solved some problems about combinatorics. In this post, I will discuss a few interesting combinatorics problems.

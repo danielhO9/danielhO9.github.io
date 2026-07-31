@@ -40,6 +40,12 @@ plugins:
 paginate: 7
 paginate_path: "/page:num/"
 
+defaults:
+  - scope:
+      path: "assets/images"
+    values:
+      sitemap: false
+
 google_analytics: G-QLNX05L28V
 
 # Uncomment the following setting if you wish to disable deprecation warnings
@@ -75,7 +81,6 @@ minima:
 #     and list the `path` property (as represented via Liquid) of the pages in
 #     the order they should be rendered.
   header_pages:
-    - about.markdown
     - tags.markdown
 
 #   Set to `true` to show excerpts on the homepage.

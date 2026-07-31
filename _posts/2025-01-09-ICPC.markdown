@@ -3,6 +3,8 @@ layout: post
 title:  "2024 ICPC Asia Seoul Regional"
 date:   2025-01-08 23:12:00 +0900
 tags: [Contest]
+published: false
+last_modified_at: 2026-07-30 22:31:19 +0900
 ---
 
 I participated in the 2024 ICPC Asia Seoul Regional.

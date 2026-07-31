@@ -2,6 +2,7 @@
 layout: page
 title: About
 permalink: /about/
+published: false
 ---
 
 Hello, I'm Yongjun Lee, a B.S. candidate in Computer Science and Engineering at Seoul National University. <a href="{{ site.baseurl }}/assets/images/Yongjun%20Lee%20CV.pdf" target="_blank">CV</a>

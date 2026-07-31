@@ -3,6 +3,8 @@ layout: post
 title:  "UCPC 2025"
 date:   2025-08-02 01:11:00 +0900
 tags: [Contest]
+published: false
+last_modified_at: 2026-07-30 22:31:19 +0900
 ---
 
 I participated in UCPC 2025.

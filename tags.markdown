@@ -2,6 +2,7 @@
 layout: page
 title: Tags
 permalink: /tags/
+last_modified_at: 2026-07-30 22:31:19 +0900
 ---
 
 <div class="tags-page">
@@ -25,12 +26,12 @@ permalink: /tags/
   {%- endfor %}
   
   <div class="tag-cloud">
-    <a href="javascript:void(0)" class="tag-link tag-all" onclick="showAllTags()">
+    <a href="{{ '/tags/' | relative_url }}" class="tag-link tag-all">
       All Tags
     </a>
     {%- for tag in final_tags %}
       {%- assign posts = site.tags[tag] %}
-      <a href="javascript:void(0)" class="tag-link" data-tag="{{ tag | slugify }}" onclick="filterByTag('{{ tag | slugify }}')">
+      <a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}" class="tag-link" data-tag="{{ tag | slugify }}">
         {{ tag }} <span class="tag-count">({{ posts | size }})</span>
       </a>
     {%- endfor %}
@@ -98,18 +99,6 @@ function displayTags(updateHistory) {
     link.classList.remove('active');
   });
   document.querySelector('.tag-all').classList.add('active');
-}
-
-// Filter by tag (called when user clicks a tag)
-function filterByTag(tagId) {
-  window.location.hash = tagId;
-}
-
-// Show all tags (called when user clicks "All Tags")
-function showAllTags() {
-  // Remove hash from URL
-  history.pushState(null, null, window.location.pathname);
-  displayTags(false);
 }
 
 // Initialize on page load
